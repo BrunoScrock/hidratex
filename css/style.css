@@ -125,7 +125,6 @@ header {
   backdrop-filter: blur(14px) saturate(1.3);
   color: var(--white);
   z-index: 1000;
-  border-bottom: 1px solid transparent;
   transition: height var(--transition), box-shadow var(--transition);
 }
 
