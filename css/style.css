@@ -167,8 +167,9 @@ header.glass.scrolled::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   height: 100%;
+  min-width: 0;
 }
 
 /* Logo */
@@ -2177,6 +2178,12 @@ body.no-scroll {
   }
 
   /* Header */
+  .logo {
+    gap: 10px;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
   .logo-box {
     width: 42px;
     height: 42px;
@@ -2186,12 +2193,18 @@ body.no-scroll {
     font-size: 0.9rem;
   }
 
+  .logo-text {
+    min-width: 0;
+  }
+
   .logo-text strong {
     font-size: 1.05rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
   }
 
   .logo-text em {
-    font-size: 0.55rem;
+    display: none;
   }
 
   .nav-menu {
@@ -2454,6 +2467,21 @@ body.no-scroll {
   .whatsapp-float i {
     width: 28px;
     height: 28px;
+  }
+}
+
+/* Telas compactas: esconde o texto da logo para o menu nunca sair da tela */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 16px;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .nav-menu.active {
+    max-height: calc(100dvh - var(--header-height));
   }
 }
 
