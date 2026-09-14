@@ -2030,9 +2030,11 @@ body.no-scroll {
   transform: translateY(-3px);
 }
 
-.footer-social i {
+.footer-social i,
+.footer-social svg {
   width: 18px;
   height: 18px;
+  color: var(--white);
 }
 
 .footer-bottom {
