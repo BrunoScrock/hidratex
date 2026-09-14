@@ -129,11 +129,10 @@ header {
   transition: height var(--transition), background var(--transition), box-shadow var(--transition);
 }
 
-/* Estado encolhido (após rolar um pouco) */
+/* Estado encolhido (após rolar um pouco) — mantém o mesmo vidro fosco */
 header.scrolled {
   height: 66px;
-  background: rgba(12, 30, 53, 0.88);
-  box-shadow: 0 6px 28px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.3);
 }
 
 .header-content {
@@ -2144,6 +2143,11 @@ body.no-scroll {
     --header-height: 64px;
   }
 
+  /* Mantém a mesma altura no mobile (sem encolher) para o menu fixo alinhar */
+  header.scrolled {
+    height: var(--header-height);
+  }
+
   /* Header */
   .logo-box {
     width: 42px;
@@ -2163,15 +2167,21 @@ body.no-scroll {
   }
 
   .nav-menu {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: var(--header-height);
     left: 0;
-    width: 100%;
-    background: rgba(12, 30, 53, 0.97);
+    right: 0;
+    width: auto;
+    margin: 0;
+    background: rgba(12, 30, 53, 0.92);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     box-shadow: 0 14px 28px rgba(0,0,0,0.35);
     border-top: 1px solid rgba(255,255,255,0.06);
+    max-height: calc(100vh - var(--header-height));
+    max-height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-14px);
