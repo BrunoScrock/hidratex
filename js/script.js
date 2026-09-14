@@ -583,7 +583,7 @@ function criarParticulasHero() {
   var reduzirMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduzirMovimento) return;
 
-  var isMobile = window.innerWidth < 768;
+  var isMobile = window.innerWidth < 900;
   var total = isMobile ? 12 : 24;
 
   for (var i = 0; i < total; i++) {
