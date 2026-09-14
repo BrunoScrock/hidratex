@@ -120,19 +120,49 @@ header {
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background: rgba(12, 30, 53, 0.92);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  backdrop-filter: blur(16px) saturate(1.4);
+  background: transparent;
   color: var(--white);
   z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: height var(--transition), box-shadow var(--transition), background var(--transition);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  transition: height var(--transition), box-shadow var(--transition);
 }
 
+/* Camada de vidro fosco — desliza de opacidade 0 → 1 de forma suave.
+   O blur fica ativo o tempo todo, mas sobre o hero (fundo escuro uniforme)
+   ele é imperceptível. Assim, a animação do fundo fica realmente contínua. */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 30, 53, 0.78);
+  opacity: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: opacity var(--transition), background var(--transition);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Estado encolhido (após rolar um pouco) */
 header.scrolled {
   height: 66px;
-  background: rgba(12, 30, 53, 0.97);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Estado glass — quando sai do hero e entra nas seções de conteúdo */
+header.glass::before {
+  opacity: 1;
+}
+
+header.glass {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+header.glass.scrolled {
+  box-shadow: 0 6px 28px rgba(0,0,0,0.35);
+}
+
+header.glass.scrolled::before {
+  background: rgba(12, 30, 53, 0.88);
 }
 
 .header-content {
