@@ -647,12 +647,19 @@ document.addEventListener("DOMContentLoaded", function () {
   inicializarMenuMobile();
   iniciarScrollSpy();
 
-  // Scroll do header — vidro fosco sempre ativo, apenas encolhe ao rolar
+  // Scroll do header — transparente no hero, vidro fosco ao rolar
   var header = document.getElementById("topo");
+  var hero = document.getElementById("hero");
 
-  var aoRolar = function () {
-    header.classList.toggle("scrolled", window.scrollY > 40);
-  };
+  function aoRolar() {
+    var scrollY = window.scrollY;
+    var limiteGlass = hero
+      ? hero.offsetTop + hero.offsetHeight * 0.7
+      : window.innerHeight * 0.85;
+
+    header.classList.toggle("scrolled", scrollY > 40);
+    header.classList.toggle("glass", scrollY > limiteGlass);
+  }
 
   if (header) {
     aoRolar();

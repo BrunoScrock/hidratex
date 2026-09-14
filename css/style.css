@@ -129,10 +129,40 @@ header {
   transition: height var(--transition), box-shadow var(--transition);
 }
 
+/* Camada de vidro fosco que aparece suavemente ao sair do hero */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(35, 60, 100, 0.55);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity var(--transition), background var(--transition);
+}
+
 /* Estado encolhido (após rolar um pouco) — fundo permanece 100% transparente */
 header.scrolled {
   height: 66px;
   box-shadow: 0 6px 28px rgba(0,0,0,0.18);
+}
+
+/* Estado glass — camada de vidro fosco fica visível */
+header.glass::before {
+  opacity: 1;
+}
+
+header.glass {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+}
+
+header.glass.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+header.glass.scrolled::before {
+  background: rgba(40, 65, 105, 0.65);
 }
 
 .header-content {
