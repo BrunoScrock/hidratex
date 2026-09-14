@@ -2207,7 +2207,15 @@ body.no-scroll {
   }
 
   .logo-text em {
-    display: none;
+    display: block;
+    font-style: normal;
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    white-space: normal;
+    max-width: 100px;
   }
 
   .nav-menu {
@@ -2473,15 +2481,12 @@ body.no-scroll {
   }
 }
 
-/* Tagline da logo escondida de 1023px para baixo (do tablet ao celular) */
-@media (max-width: 1023px) {
+/* Tablets e desktop compacto: cabeçalho encolhe para não estourar */
+@media (min-width: 901px) and (max-width: 1023px) {
   .logo-text em {
     display: none;
   }
-}
 
-/* Tablets e desktop compacto: cabeçalho encolhe para não estourar */
-@media (min-width: 901px) and (max-width: 1023px) {
   .logo-text strong {
     font-size: 1.1rem;
     letter-spacing: 1px;
