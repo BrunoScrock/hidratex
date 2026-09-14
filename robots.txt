@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://[SEU-DOMINIO]/sitemap.xml
+
+# Hidratex — Construção e Hidráulica
+# Site institucional estático

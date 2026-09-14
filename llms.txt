@@ -1,0 +1,24 @@
+# Hidratex — Construção e Hidráulica
+
+> Site institucional da Hidratex, empresa especializada em construção civil e serviços hidráulicos.
+
+## Sobre
+
+A Hidratex é uma empresa de construção civil e hidráulica que atende projetos residenciais, comerciais e industriais.
+
+## Serviços
+
+- Construção Civil (obras, reformas, adequações, manutenção, acabamentos)
+- Hidráulica (instalações, manutenção, redes de água e esgoto, tubulações, reparos)
+- Reformas (residenciais e comerciais)
+- Manutenção (preventiva, corretiva e emergencial)
+
+## Contato
+
+- WhatsApp: [INSERIR WHATSAPP]
+- E-mail: [INSERIR E-MAIL]
+- Telefone: [INSERIR TELEFONE]
+
+## Área de Atendimento
+
+[INSERIR ÁREA DE ATENDIMENTO]
