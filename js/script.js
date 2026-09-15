@@ -477,26 +477,21 @@ function aplicarConfiguracao() {
 function inicializarMenuMobile() {
   var botao = document.getElementById("mobileMenuBtn");
   var menu = document.querySelector(".nav-menu");
-  var icone = botao ? botao.querySelector("i") : null;
 
   if (!botao || !menu) return;
 
   function fecharMenu() {
     menu.classList.remove("active");
-    if (botao) {
-      botao.setAttribute("aria-expanded", "false");
-      botao.setAttribute("aria-label", "Abrir menu");
-    }
-    if (icone) icone.dataset.lucide = "menu";
-    if (window.lucide) window.lucide.createIcons();
+    botao.classList.remove("open");
+    botao.setAttribute("aria-expanded", "false");
+    botao.setAttribute("aria-label", "Abrir menu");
   }
 
   botao.addEventListener("click", function () {
     var aberto = menu.classList.toggle("active");
+    botao.classList.toggle("open", aberto);
     botao.setAttribute("aria-expanded", aberto ? "true" : "false");
     botao.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
-    if (icone) icone.dataset.lucide = aberto ? "x" : "menu";
-    if (window.lucide) window.lucide.createIcons();
   });
 
   menu.querySelectorAll("a").forEach(function (link) {

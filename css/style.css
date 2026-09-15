@@ -309,18 +309,37 @@ header.glass.scrolled::before {
   justify-content: center;
   width: 44px;
   height: 44px;
-  color: var(--white);
   border-radius: 10px;
   transition: background 0.2s;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .mobile-menu-btn:hover {
   background: rgba(255,255,255,0.08);
 }
 
-.mobile-menu-btn i {
-  width: 26px;
-  height: 26px;
+/* Três barras do hambúrguer */
+.mobile-menu-btn .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animação → X ao abrir */
+.mobile-menu-btn.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-btn.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* --------------------------------------------------------------------------
